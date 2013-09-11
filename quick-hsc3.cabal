@@ -1,0 +1,17 @@
+name:                quick-hsc3
+version:             0.1.0.0
+-- synopsis:            
+-- description:         
+license:             GPL-3
+license-file:        LICENSE
+author:              Craig Roche
+maintainer:          cdxr01@gmail.com
+-- copyright:           
+category:            Sound
+build-type:          Simple
+cabal-version:       >=1.8
+
+library
+  exposed-modules:     Sound.SC3.Server.Quick
+  -- other-modules:       
+  build-depends:       base ==4.6.*, hsc3-server ==0.7.*, hsc3-process ==0.9.*
