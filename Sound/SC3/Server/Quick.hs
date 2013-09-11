@@ -15,14 +15,13 @@ import Sound.SC3.Server.Process
     , defaultRTOptions
     )
 
-import qualified System.IO as IO
+import System.IO
 
 
 withSynthOutput :: Maybe FilePath -> Server a -> IO a
-withSynthOutput outfile = case outfile of
-    Nothing -> defaultSynth noHandler
-    Just fp -> \m -> IO.withFile fp IO.WriteMode $ \h -> do
-        IO.hSetBuffering h IO.LineBuffering
+withSynthOutput outfile m = case outfile of
+    Nothing -> defaultSynth noHandler m
+    Just fp -> withFile fp WriteMode $ \h ->
         defaultSynth (fileHandler h) m
   where
     defaultSynth :: OutputHandler -> Server a -> IO a
@@ -30,7 +29,9 @@ withSynthOutput outfile = case outfile of
 
     noHandler = OutputHandler (\_ -> return ()) (\_ -> return ())
 
-    fileHandler h = let p = IO.hPutStrLn h in OutputHandler p p
+    fileHandler h = OutputHandler p p
+      where
+        p s = hPutStrLn h s >> hFlush h
 
 
 -- | Start the default scsynth server, sending output to "scsynth.out"
