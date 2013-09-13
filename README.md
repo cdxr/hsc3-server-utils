@@ -1,8 +1,7 @@
-quick-hsc3
-----------
+hsc3-server-utils
+-----------------
 
-This package exists purely for the sake of my personal convenience.
-It exports a single module, `Sound.SC3.Server.Quick`.
+This package exports a single module, `Sound.SC3.Server.Utils`.
 It defines a function `quickSynth` which calls
  `Sound.SC3.Server.State.Monad.Process.withSynth` with default arguments,
  outputting all scsynth output to "scsynth.out".

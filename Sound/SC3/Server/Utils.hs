@@ -1,4 +1,4 @@
-module Sound.SC3.Server.Quick
+module Sound.SC3.Server.Utils
 ( withSynthOutput
 , quickSynth
 , module Sound.SC3.Server.State.Monad

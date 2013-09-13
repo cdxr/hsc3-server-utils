@@ -1,6 +1,6 @@
-name:                quick-hsc3
+name:                hsc3-server-utils
 version:             0.1.0.0
--- synopsis:            
+synopsis:            utilities for working with hsc3-server
 -- description:         
 license:             GPL-3
 license-file:        LICENSE
@@ -12,6 +12,6 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 library
-  exposed-modules:     Sound.SC3.Server.Quick
+  exposed-modules:     Sound.SC3.Server.Utils
   -- other-modules:       
   build-depends:       base ==4.6.*, hsc3-server ==0.7.*, hsc3-process ==0.9.*
